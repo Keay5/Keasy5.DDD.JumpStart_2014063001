@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1C68091D-D0DF-4562-985A-3E6CA3F35A13}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Keasy5.Application</RootNamespace>
+    <AssemblyName>Keasy5.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationService.cs" />
+    <Compile Include="Implementation\OrderServiceImpl.cs" />
+    <Compile Include="Implementation\PostbackServiceImpl.cs" />
+    <Compile Include="Implementation\ProductServiceImpl.cs" />
+    <Compile Include="Implementation\UserServiceImpl.cs" />
+    <Compile Include="Mapping\AddressResolver.cs" />
+    <Compile Include="Mapping\AutoMapperBootstrapper.cs" />
+    <Compile Include="Mapping\InversedAddressResolver.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuerySpecExtension.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Keasy5.DataObject\Keasy5.DataObject.csproj">
+      <Project>{980230f5-583a-4420-837b-53b697d2f31b}</Project>
+      <Name>Keasy5.DataObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Keasy5.Domain\Keasy5.Domain.csproj">
+      <Project>{a95187b6-ebbe-4885-b336-a40bdc03887c}</Project>
+      <Name>Keasy5.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Keasy5.Events\Keasy5.Events.csproj">
+      <Project>{591b4812-c63d-423d-b0a2-3c4b5038b2f3}</Project>
+      <Name>Keasy5.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Keasy5.Infrastructure\Keasy5.Infrastructure.csproj">
+      <Project>{2701653f-8132-4211-8159-d28db339351b}</Project>
+      <Name>Keasy5.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Keasy5.ServiceContract\Keasy5.ServiceContract.csproj">
+      <Project>{d178c68d-cf6a-4904-9a20-d946285defc6}</Project>
+      <Name>Keasy5.ServiceContract</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="doc\01_应用层相关.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Keasy5.Service.Wcf.OrderService" CodeBehind="OrderService.svc.cs" %>

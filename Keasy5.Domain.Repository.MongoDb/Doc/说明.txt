@@ -1,0 +1,11 @@
+﻿1.要使用MongoDB需要调用
+MongoDBBootstrapper-->Bootstrap()进行初始工作
+
+2.深度剖析Byteart Retail案例：基于MongoDB的仓储实现
+http://www.cnblogs.com/daxnet/archive/2013/05/01/3053256.html#2960066
+
+3.浅谈Apworks对MongoDB的支持：设计与实现 
+http://www.cnblogs.com/daxnet/archive/2012/07/23/2605695.html
+
+
+

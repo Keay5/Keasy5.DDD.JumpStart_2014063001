@@ -1,0 +1,60 @@
+﻿http://www.cnblogs.com/daxnet/archive/2010/11/02/1866797.html
+
+应用层职责
+
+在《Entity Framework之领域驱动设计实践》系列文章中，我曾经提到过，根据DDD，
+应用系统分为四层：展现层、应用层、领域层和基础结构层。
+在Tiny Library案例中，TinyLibrary.Services充当了应用层的职责，它不负责处理任何业务逻辑，
+而是从更高的层面，为业务逻辑的正确执行提供适当的运行环境，
+同时起到任务协调的作用（比如事务处理和基础结构层服务调用）。
+
+隐藏行号 复制代码 ？ WCF Service中“还书”操作的具体实现
+public void Return(string readerUserName, Guid bookId)
+{
+    try
+    {
+        using (IRepositoryTransactionContext ctx = ObjectContainer
+            .Instance
+            .GetService<IRepositoryTransactionContext>())
+        {
+            IRepository<Book> bookRepository = ctx.GetRepository<Book>();
+            IRepository<Reader> readerRepository = ctx.GetRepository<Reader>();
+
+            Reader reader = readerRepository.Find(Specification<Reader>.Eval(r => r.UserName.Equals(readerUserName)));
+            Book book = bookRepository.GetByKey(bookId);
+            reader.Return(book);
+            ctx.Commit();
+        }
+    }
+    catch
+    {
+        throw;
+    }
+}
+上面的代码展示了“还书”操作的具体实现方式，我们可以看到，位于应用层的WCF Services仅仅是协调仓储操作和事务处理，业务逻辑由reader.Return方法实现：
+
+隐藏行号 复制代码 ？ TinyLibrary.Domain.Reader的Return方法
+public void Return(Book book)
+{
+    if (!book.Lent)
+        throw new InvalidOperationException("The book has not been lent.");
+    var q = from r in this.Registrations
+            where r.Book.Id.Equals(book.Id) &&
+            r.RegistrationStatus == RegistrationStatus.Normal
+            select r;
+    if (q.Count() > 0)
+    {
+        var reg = q.First();
+        if (reg.Expired)
+        {
+            // TODO: Reader should pay for the expiration.
+        }
+        reg.ReturnDate = DateTime.Now;
+        reg.RegistrationStatus = RegistrationStatus.Returned;
+        book.Lent = false;
+    }
+    else
+        throw new InvalidOperationException(string.Format("Reader {0} didn't borrow this book.",
+            this.Name));
+}
+ 

@@ -1,0 +1,15 @@
+﻿ 
+ 项目类型：WCF服务应用程序
+
+ 
+ 创建.Net WCF服务,可参看
+       http://www.cnblogs.com/daxnet/archive/2011/02/14/1954427.html
+
+8.右键单击TinyLibrary.Services项目，然后单击Add | New Item…菜单，这将打开Add New Item对话框
+9.在Installed Templates选项卡下，选择Visual C# | Web，然后选择WCF Service，在Name文本框中，输入CommandService然后单击Add按钮
+10.编辑CommandService.svc.cs文件，输入如下代码
+
+
+12.右键单击TinyLibrary.Services项目，然后选择Add | New Item…菜单，这将打开Add New Item对话框
+13.在Installed Templates选项卡下，选择Visual C# | Web，然后选择Global Application Class，然后单击Add按钮
+14.修改Global.asax.cs文件如下

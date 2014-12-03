@@ -1,0 +1,8 @@
+﻿http://social.msdn.microsoft.com/Search/zh-CN?query=Fluent%20API&Refinement=95&ac=4
+
+http://msdn.microsoft.com/zh-cn/data/hh134698.aspx
+http://msdn.microsoft.com/zh-cn/data/jj591617.aspx
+http://msdn.microsoft.com/zh-cn/data/jj591620.aspx
+
+Shrink EF Models with DDD Bounded Contexts:
+http://www.nmtree.net/2014/05/09/shrink-ef-models-with-ddd-bounded-contexts.html

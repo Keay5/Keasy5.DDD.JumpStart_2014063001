@@ -1,0 +1,26 @@
+﻿http://www.cnblogs.com/daxnet/archive/2012/11/08/2760473.html#2954019
+
+#67楼[楼主] 2014-04-28 21:27 dax.net  
+@tiger5
+引用
+•ByteartRetail.DataObjects：数据传输对象及其类型扩展
+楼主，这层中的xsd文件是自己手写，还是借助工具生成的哪。
+
+XSD是手写的，C#代码是自动产生的。
+
+
+http://www.cnblogs.com/daxnet/archive/2010/11/02/1866797.html
+数据传输对象（Data Transferring Object，DTO）
+
+
+小菜之智能客户端（１）XML，DTD，XSD
+http://www.cnblogs.com/a-peng/archive/2008/09/17/1292339.html
+
+如何：创建和编辑 XSD 架构文件
+http://technet.microsoft.com/zh-cn/dd489272.aspx
+
+如何动态根据一个业务实体类型创建XSD架构文件
+http://developer.51cto.com/art/200908/143058.htm
+
+ServiceModel 元数据实用工具 (Svcutil.exe)
+http://msdn.microsoft.com/zh-cn/library/aa347733.aspx

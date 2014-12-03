@@ -1,0 +1,14 @@
+﻿1.要使用EntityFramework仓储（比如：服务层），需要调用
+      ByteartRetailDbContextInitailizer.Initialize();  //EntityFramwork初始化
+
+2.关于EntityFramew的CodeFirst的实现：
+  参考资料：
+  http://www.codeguru.com/csharp/article.php/c19233/Introduction-to-Entity-Framework-Code-First.htm
+  http://www.codeguru.com/csharp/article.php/c19999/Understanding-Database-Initializers-in-Entity-Framework-Code-First.htm
+
+  CodeFirst方式包括
+  （1）自动生成数据库（EF will create the database ）方式
+  （2）用已经存在的数据库，本项目采用的方式是:用已经存在的数据库（Using an Existing Database with Code First）：
+
+
+
